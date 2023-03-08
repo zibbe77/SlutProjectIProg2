@@ -1,8 +1,6 @@
 using System;
 
-namespace SlutProjectIProg2;
-
-public class HpPotion
+public class HpPotion : Consumables
 {
 
 }

@@ -1,8 +1,6 @@
 using System;
 
-namespace SlutProjectIProg2;
-
-public class ManaPotion
+public class ManaPotion : Consumables
 {
-    
+
 }
