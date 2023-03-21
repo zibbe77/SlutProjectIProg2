@@ -1,6 +1,6 @@
 using System;
 
-public class Sword : Weapon
+public abstract class Sword : Weapon
 {
     //appearance
     public string BladeMaterial { get; set; }

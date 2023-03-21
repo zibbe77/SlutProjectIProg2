@@ -2,11 +2,17 @@ using System;
 
 public class DrawUi
 {
+    // overlode ?? du kan kalla den om du inte vill ställa in en boxlength
     public static void DrawTextLine(string line)
     {
         //kontrolerar längden på boxen
         int boxLength = 50;
+        DrawTextLine(line, boxLength);
+    }
 
+    // kan kallas och är huben för att skriva ut en string
+    public static void DrawTextLine(string line, int boxLength)
+    {
         //hämtar boxen
         string box = CreatBox(boxLength);
 
@@ -18,9 +24,9 @@ public class DrawUi
         {
             Console.WriteLine(line);
         }
-        else if (line.Length > boxLength && line.Length < boxLength * 2)
+        else
         {
-            string[] lineBack = LineBulider(line, 2);
+            string[] lineBack = LineBulider(line, boxLength);
             for (var i = 0; i < lineBack.Count(); i++)
             {
                 Console.WriteLine(lineBack[i]);
@@ -29,6 +35,7 @@ public class DrawUi
         Console.WriteLine(box);
     }
 
+    //skappar stringen som är boxen 
     private static string CreatBox(int Length)
     {
         string box = "";
@@ -40,29 +47,22 @@ public class DrawUi
         return box;
     }
 
-    private static string[] LineBulider(string line, int rows)
+    //splitar strings så den får plats i en box
+    private static string[] LineBulider(string line, float boxLength)
     {
-        //string[] lineArray = new string[rows];
+        //räknar hur många rader det ska vara
+        int rows = (int)MathF.Round(line.Length / boxLength);
+
         string[] lineArray = line.Split(" ");
         string[] returnLine = new string[rows];
 
         float splitNumber = MathF.Floor(lineArray.Count() / rows);
 
-        //test
-        Console.WriteLine(splitNumber);
-
-        for (var rowI = 0; rowI < rows; rowI++)
+        //sätter ihop springen
+        for (int rowI = 0; rowI < rows; rowI++)
         {
-            for (var i = 0; i < splitNumber; i++)
-            {
-                try
-                {
-                    returnLine[rowI] = String.Join((splitNumber * rowI) + lineArray[i], (splitNumber * rowI) + lineArray[i + 1]);
-                }
-                catch (System.Exception) { }
-            }
+            returnLine[rowI] = String.Join(" ", lineArray[((int)splitNumber * rowI)..((int)splitNumber * (rowI + 1))]);
         }
-
         return returnLine;
     }
 }

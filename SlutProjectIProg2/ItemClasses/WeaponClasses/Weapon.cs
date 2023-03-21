@@ -1,6 +1,6 @@
 using System;
 
-public class Weapon : Item
+public abstract class Weapon : Item
 {
     //Dmges numbers
     public int Range { get; set; }
