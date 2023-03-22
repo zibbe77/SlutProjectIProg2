@@ -1,17 +1,7 @@
-using System;
-
 public class DrawUi
 {
-    // overlode ?? du kan kalla den om du inte vill ställa in en boxlength
-    public static void DrawTextLine(string line)
-    {
-        //kontrolerar längden på boxen
-        int boxLength = 50;
-        DrawTextLine(line, boxLength);
-    }
-
     // kan kallas och är huben för att skriva ut en string
-    public static void DrawTextLine(string line, int boxLength)
+    public static void DrawTextLine(string line, int boxLength = 50)
     {
         //hämtar boxen
         string box = CreatBox(boxLength);
@@ -35,6 +25,13 @@ public class DrawUi
         Console.WriteLine(box);
     }
 
+    //för att städa bort en box och vissa den
+    public static void ViewBox()
+    {
+        Console.ReadLine();
+        Console.Clear();
+    }
+
     //skappar stringen som är boxen 
     private static string CreatBox(int Length)
     {
@@ -51,7 +48,7 @@ public class DrawUi
     private static string[] LineBulider(string line, float boxLength)
     {
         //räknar hur många rader det ska vara
-        int rows = (int)MathF.Round(line.Length / boxLength);
+        int rows = (int)MathF.Ceiling(line.Length / boxLength);
 
         string[] lineArray = line.Split(" ");
         string[] returnLine = new string[rows];

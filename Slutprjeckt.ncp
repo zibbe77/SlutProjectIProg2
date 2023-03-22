@@ -17,16 +17,16 @@
       <Entity type="Class">
         <Name>Weapon</Name>
         <Access>Public</Access>
-        <Location left="817" top="355" />
+        <Location left="921" top="340" />
         <Size width="230" height="217" />
         <Collapsed>False</Collapsed>
-        <Member type="Property">public int Range { get; set; }</Member>
+        <Member type="Property">public abstract int Range { get; set; }</Member>
         <Member type="Property">public int Dmg { get; set; }</Member>
         <Member type="Property">public int SwingSpeed { get; set; }</Member>
         <Member type="Property">public int Stabbspeed { get; set; }</Member>
         <Member type="Property">public string HandelMaterial { get; set; }</Member>
         <Member type="Property">public int HandelLength { get; set; }</Member>
-        <Modifier>None</Modifier>
+        <Modifier>Abstract</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>Sword</Name>
@@ -59,7 +59,7 @@
         <Name>Spear</Name>
         <Access>Public</Access>
         <Location left="706" top="630" />
-        <Size width="224" height="236" />
+        <Size width="224" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Property">public string SpeartipMaterial { get; set; }</Member>
         <Member type="Property">public int SpeartipLenght { get; set; }</Member>
@@ -72,10 +72,10 @@
         <Location left="341" top="328" />
         <Size width="196" height="216" />
         <Collapsed>False</Collapsed>
-        <Member type="Property">public string Effect { get; set; }</Member>
+        <Member type="Property">public abstract string Effect { get; set; }</Member>
         <Member type="Property">public string Description { get; set; }</Member>
         <Member type="Property">public string Color { get; set; }</Member>
-        <Modifier>None</Modifier>
+        <Modifier>Abstract</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>HpPotion</Name>
@@ -98,7 +98,7 @@
       <Entity type="Class">
         <Name>GreaterHpPotion</Name>
         <Access>Public</Access>
-        <Location left="474" top="933" />
+        <Location left="474" top="929" />
         <Size width="183" height="216" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
@@ -106,26 +106,32 @@
     </Entities>
     <Relationships>
       <Relationship type="Association" first="1" second="0">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>899</X>
-          <Y>306</Y>
+          <X>1003</X>
+          <Y>291</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>666</X>
-          <Y>272</Y>
+          <Y>291</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="3" second="2">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="4" second="2">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -136,48 +142,44 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="6" second="0">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
           <X>666</X>
-          <Y>276</Y>
+          <Y>279</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="9" second="7">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="7" second="6">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="8" second="6">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="2" second="1">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="5" second="1">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>

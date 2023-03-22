@@ -1,2 +1,13 @@
-﻿DrawUi.DrawTextLine("Hej jag hetter anders och gillar att gå på saker och därför är det coolt. sånt är bra för att jag gillar det. Desutom så är det got med korv och pasta och saker som jag gillar mums yes test test test");
+﻿Dialogue.StartDialogue();
+
+//skaper spelaren och skappar en Dictionary med items
+Shoper sh = new Shoper();
+Toolbox.StartAddItems();
+
+foreach (KeyValuePair<string, Item> pair in Toolbox.ItemDictionary)
+{
+    Console.WriteLine(pair.Value.Name);
+}
+
 Console.ReadLine();
+
