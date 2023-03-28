@@ -1,13 +1,9 @@
-﻿Dialogue.StartDialogue();
+﻿global using System;
 
-//skaper spelaren och skappar en Dictionary med items
-Shoper sh = new Shoper();
-Toolbox.StartAddItems();
-
-foreach (KeyValuePair<string, Item> pair in Toolbox.ItemDictionary)
+bool Runing = true;
+while (Runing == true)
 {
-    Console.WriteLine(pair.Value.Name);
+    GameRun.GameRuning();
+    DrawUi.DrawTextLine("Vill du avsluta spelet");
+    Runing = !CheckResponse.CheckResponseYeNe();
 }
-
-Console.ReadLine();
-

@@ -2,7 +2,13 @@ using System;
 
 public static class Toolbox
 {
+    // lägger till alla items som fins 
     public static Dictionary<string, Item> ItemDictionary = new Dictionary<string, Item>();
+
+    public static void RemoveAllItems()
+    {
+        ItemDictionary.Clear();
+    }
 
     //lägger till saker i en Dictionary
     public static void StartAddItems()

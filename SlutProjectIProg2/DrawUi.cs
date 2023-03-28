@@ -1,13 +1,24 @@
 public class DrawUi
 {
-    // kan kallas och är huben för att skriva ut en string
+    // overload ?? tror jag det heter. Men den kan kallas för att slippa skriva in all parametrar
     public static void DrawTextLine(string line, int boxLength = 50)
+    {
+        bool firstline = true;
+        bool secendline = true;
+        DrawTextLine(line, firstline, secendline, boxLength);
+    }
+
+    // kan kallas och är huben för att skriva ut en string
+    public static void DrawTextLine(string line, bool firstline, bool secendline, int boxLength = 50)
     {
         //hämtar boxen
         string box = CreatBox(boxLength);
 
-        //skriver utt ui 
-        Console.WriteLine(box);
+        //skriver utt linje
+        if (firstline == true)
+        {
+            Console.WriteLine(box);
+        }
 
         //om den är länger splita i felra rader
         if (line.Length < boxLength)
@@ -22,7 +33,10 @@ public class DrawUi
                 Console.WriteLine(lineBack[i]);
             }
         }
-        Console.WriteLine(box);
+        if (secendline == true)
+        {
+            Console.WriteLine(box);
+        }
     }
 
     //för att städa bort en box och vissa den
