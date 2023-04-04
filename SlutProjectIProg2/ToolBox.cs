@@ -28,4 +28,20 @@ public static class Toolbox
         LongSword longSword = new LongSword();
         ItemDictionary.Add("LongSword", longSword);
     }
+
+    //slumpar namen från text fillen name
+    public static string[] RandomName(int namesCount)
+    {
+        Random random = new Random();
+        string[] contents = File.ReadAllLines(@"Names.txt");
+
+        string[] returnString = new string[namesCount];
+
+        for (int i = 0; i < namesCount; i++)
+        {
+            returnString[i] = contents[random.Next(0, 400)];
+        }
+
+        return returnString;
+    }
 }

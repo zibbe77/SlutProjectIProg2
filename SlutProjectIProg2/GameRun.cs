@@ -14,13 +14,14 @@ public static class GameRun
         Toolbox.StartAddItems();
 
         // Det är ett lite intro till hur spelet fungerar men man kan bara lämna spelet här om man vill
-        Dialogue.StartBuyItem();
+        Dialogue.StartBuyItem(sh);
         if (GameShouldRun == false) { return; }
 
         //loopar spelet
         while (GameShouldRun == true)
         {
-
+            Dialogue.Choice(sh);
+            if (GameShouldRun == false) { return; }
         }
     }
 }

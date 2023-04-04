@@ -67,12 +67,12 @@ public class DrawUi
         string[] lineArray = line.Split(" ");
         string[] returnLine = new string[rows];
 
-        float splitNumber = MathF.Floor(lineArray.Count() / rows);
+        float splitNumber = (float)lineArray.Count() / (float)rows;
 
         //sätter ihop springen
         for (int rowI = 0; rowI < rows; rowI++)
         {
-            returnLine[rowI] = String.Join(" ", lineArray[((int)splitNumber * rowI)..((int)splitNumber * (rowI + 1))]);
+            returnLine[rowI] = String.Join(" ", lineArray[((int)(splitNumber * rowI))..((int)(splitNumber * (rowI + 1)))]);
         }
         return returnLine;
     }
