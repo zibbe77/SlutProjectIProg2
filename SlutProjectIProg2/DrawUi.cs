@@ -1,7 +1,7 @@
 public class DrawUi
 {
     // overload ?? tror jag det heter. Men den kan kallas för att slippa skriva in all parametrar
-    public static void DrawTextLine(string line, int boxLength = 50)
+    public void DrawTextLine(string line, int boxLength = 50)
     {
         bool firstline = true;
         bool secendline = true;
@@ -9,7 +9,7 @@ public class DrawUi
     }
 
     // kan kallas och är huben för att skriva ut en string
-    public static void DrawTextLine(string line, bool firstline, bool secendline, int boxLength = 50)
+    public void DrawTextLine(string line, bool firstline, bool secendline, int boxLength = 50)
     {
         //hämtar boxen
         string box = CreatBox(boxLength);
@@ -40,14 +40,14 @@ public class DrawUi
     }
 
     //för att städa bort en box och vissa den
-    public static void ViewBox()
+    public void ViewBox()
     {
         Console.ReadLine();
         Console.Clear();
     }
 
     //skappar stringen som är boxen 
-    private static string CreatBox(int Length)
+    private string CreatBox(int Length)
     {
         string box = "";
 
@@ -59,7 +59,7 @@ public class DrawUi
     }
 
     //splitar strings så den får plats i en box
-    private static string[] LineBulider(string line, float boxLength)
+    private string[] LineBulider(string line, float boxLength)
     {
         //räknar hur många rader det ska vara
         int rows = (int)MathF.Ceiling(line.Length / boxLength);

@@ -1,9 +1,16 @@
 using System;
 
-public static class CheckResponse
+public class CheckResponse
 {
+    //skapper en refercen till drawUi och skapare en instans av den
+    DrawUi drawUi;
+    public CheckResponse()
+    {
+        drawUi = new DrawUi();
+    }
+
     //kolar efter om svaret var ja eller nej returnar en bool true eller false
-    public static bool CheckResponseYeNe(string qustion)
+    public bool CheckResponseYeNe(string qustion)
     {
         bool boolReturn = false;
         bool valid = false;
@@ -11,7 +18,7 @@ public static class CheckResponse
 
         while (valid == false)
         {
-            DrawUi.DrawTextLine("Ja / Nej", 8);
+            drawUi.DrawTextLine("Ja / Nej", 8);
             string response = Console.ReadLine().ToLower();
 
             if (response == "ja")
@@ -27,17 +34,17 @@ public static class CheckResponse
             else
             {
                 Console.Clear();
-                DrawUi.DrawTextLine("Du måste skriv Ja eller Nej. klicka enter om du förstår");
-                DrawUi.ViewBox();
+                drawUi.DrawTextLine("Du måste skriv Ja eller Nej. klicka enter om du förstår");
+                drawUi.ViewBox();
             }
-            DrawUi.DrawTextLine(qustion);
+            drawUi.DrawTextLine(qustion);
         }
         Console.Clear();
         return boolReturn;
     }
 
     //kollar vilket item du vill kolla på
-    public static string CheckItem(string qustion)
+    public string CheckItem(string qustion)
     {
         string returnString = " ";
         bool valid = false;
@@ -45,7 +52,7 @@ public static class CheckResponse
         while (valid == false)
         {
             //skriver frågan och sparar svaret
-            DrawUi.DrawTextLine(qustion);
+            drawUi.DrawTextLine(qustion);
 
             string response = Console.ReadLine().ToLower();
 
@@ -60,20 +67,20 @@ public static class CheckResponse
             }
             if (valid == false)
             {
-                DrawUi.DrawTextLine("Du måste skriva en av sakerna");
+                drawUi.DrawTextLine("Du måste skriva en av sakerna");
             }
         }
         return returnString;
     }
 
     //kollar vom du väljer att gå till afären, lämna eller kola dina saker
-    public static int CheckAction(string qustion)
+    public int CheckAction(string qustion)
     {
         int returnInt = 0;
 
         while (returnInt == 0)
         {
-            DrawUi.DrawTextLine(qustion);
+            drawUi.DrawTextLine(qustion);
             string response = Console.ReadLine().ToLower();
 
             switch (response.ToLower())
@@ -88,8 +95,8 @@ public static class CheckResponse
                     returnInt = 3;
                     break;
                 default:
-                    DrawUi.DrawTextLine(qustion);
-                    DrawUi.ViewBox();
+                    drawUi.DrawTextLine(qustion);
+                    drawUi.ViewBox();
                     break;
             }
         }
@@ -97,7 +104,7 @@ public static class CheckResponse
     }
 
     //kollar vilket av dina saker du vill kola på
-    public static void CheckYourItems(string qustion, Shoper sh)
+    public void CheckYourItems(string qustion, Shoper sh)
     {
         string returnString = " ";
         bool valid = false;
@@ -105,7 +112,7 @@ public static class CheckResponse
         while (valid == false)
         {
             //skriver frågan och sparar svaret
-            DrawUi.DrawTextLine(qustion);
+            drawUi.DrawTextLine(qustion);
 
             string response = Console.ReadLine().ToLower();
 
@@ -121,15 +128,37 @@ public static class CheckResponse
                         Console.WriteLine($"{prop.Name} är {prop.GetValue(item)}");
                     }
                     valid = true;
-                    DrawUi.DrawTextLine("klicka enter för att forsäta");
-                    DrawUi.ViewBox();
+                    drawUi.DrawTextLine("klicka enter för att forsäta");
+                    drawUi.ViewBox();
                 }
             }
 
             if (valid == false)
             {
-                DrawUi.DrawTextLine("Du måste skriva en av sakerna");
+                drawUi.DrawTextLine("Du måste skriva en av sakerna");
             }
         }
+    }
+
+    //kolla hur mycket du vill tippa
+    public int CheckAmount()
+    {
+        int returnInt = 0;
+        bool valid = false;
+
+        while (!valid)
+        {
+            drawUi.DrawTextLine("Hur mycket vill du tippa?");
+            string value = Console.ReadLine();
+
+            valid = int.TryParse(value, out returnInt);
+            if (valid == false)
+            {
+                Console.Clear();
+                drawUi.DrawTextLine("Du måste skriva ett number");
+                drawUi.ViewBox();
+            }
+        }
+        return returnInt;
     }
 }

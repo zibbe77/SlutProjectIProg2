@@ -4,10 +4,17 @@
 bool Runing = true;
 while (Runing == true)
 {
+    //skapar spelet
     GameRun.GameShouldRun = true;
-    GameRun.GameRuning();
+    GameRun gameRun = new GameRun();
+    gameRun.GameRuning();
 
+    //kollar om pogramet ska avslutas
     string qustion = "Vill du avsluta spelet";
-    DrawUi.DrawTextLine(qustion);
-    Runing = !CheckResponse.CheckResponseYeNe(qustion);
+    DrawUi drawUi = new DrawUi();
+    drawUi.DrawTextLine(qustion);
+
+    CheckResponse checkResponse = new CheckResponse();
+
+    Runing = !checkResponse.CheckResponseYeNe(qustion);
 }

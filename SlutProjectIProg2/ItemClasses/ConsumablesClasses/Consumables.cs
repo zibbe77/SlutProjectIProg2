@@ -2,6 +2,7 @@ using System;
 
 public abstract class Consumables : Item
 {
-    public string Effect { get; set; }
-    public string Description { get; set; }
+    //varjablar som beskriver Consumables
+    public string Effect { get; protected set; }
+    public string Description { get; protected set; }
 }
