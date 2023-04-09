@@ -7,25 +7,29 @@
       <Entity type="Class">
         <Name>Item</Name>
         <Access>Public</Access>
-        <Location left="582" top="38" />
-        <Size width="163" height="209" />
+        <Location left="582" top="37" />
+        <Size width="199" height="209" />
         <Collapsed>False</Collapsed>
-        <Member type="Property">public int Name { get; set; }</Member>
+        <Member type="Field">protected int name</Member>
+        <Member type="Property">public int name { get; set; }</Member>
         <Member type="Property">public int Value { get; set; }</Member>
+        <Member type="Method">protected int RandomValue(int modifer)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>Weapon</Name>
         <Access>Public</Access>
-        <Location left="921" top="340" />
+        <Location left="922" top="340" />
         <Size width="230" height="217" />
         <Collapsed>False</Collapsed>
+        <Member type="Field">protected int dmg</Member>
         <Member type="Property">public abstract int Range { get; set; }</Member>
         <Member type="Property">public int Dmg { get; set; }</Member>
         <Member type="Property">public int SwingSpeed { get; set; }</Member>
         <Member type="Property">public int Stabbspeed { get; set; }</Member>
         <Member type="Property">public string HandelMaterial { get; set; }</Member>
         <Member type="Property">public int HandelLength { get; set; }</Member>
+        <Member type="Method">protected string RandomMaterial()</Member>
         <Modifier>Abstract</Modifier>
       </Entity>
       <Entity type="Class">
@@ -45,6 +49,7 @@
         <Location left="1352" top="948" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
+        <Member type="Method">public void NewMethod()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -53,6 +58,7 @@
         <Location left="1024" top="948" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
+        <Member type="Constructor">public ShortSword()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -64,17 +70,21 @@
         <Member type="Property">public string SpeartipMaterial { get; set; }</Member>
         <Member type="Property">public int SpeartipLenght { get; set; }</Member>
         <Member type="Property">public int SpeartipWidth { get; set; }</Member>
+        <Member type="Constructor">public Spear()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>Consumables</Name>
         <Access>Public</Access>
-        <Location left="341" top="328" />
-        <Size width="196" height="216" />
+        <Location left="342" top="328" />
+        <Size width="166" height="216" />
         <Collapsed>False</Collapsed>
-        <Member type="Property">public abstract string Effect { get; set; }</Member>
-        <Member type="Property">public string Description { get; set; }</Member>
-        <Member type="Property">public string Color { get; set; }</Member>
+        <Member type="Property">public abstract string Effect { get; protected set; }</Member>
+        <Member type="Property">public string Description { get; protected set; }</Member>
+        <Member type="Property">public string Color { get; protected set; }</Member>
+        <Member type="Method">protected string SetColor(int modifer, string preColor)</Member>
+        <Member type="Property">public virtual int SucessChance { get; set; }</Member>
+        <Member type="Method">protected virtual int SetSucessChance()</Member>
         <Modifier>Abstract</Modifier>
       </Entity>
       <Entity type="Class">
@@ -84,15 +94,19 @@
         <Size width="183" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Property">public int HealingValue { get; set; }</Member>
+        <Member type="Constructor">public HpPotion()</Member>
+        <Member type="Method">protected override int SetSucessChance()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>ManaPotion</Name>
         <Access>Public</Access>
-        <Location left="191" top="630" />
+        <Location left="190" top="630" />
         <Size width="180" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Property">public int ManaValue { get; set; }</Member>
+        <Member type="Constructor">public ManaPotion()</Member>
+        <Member type="Method">protected override int SetSucessChance()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -101,37 +115,33 @@
         <Location left="474" top="929" />
         <Size width="183" height="216" />
         <Collapsed>False</Collapsed>
+        <Member type="Constructor">public GreaterHpPotion()</Member>
+        <Member type="Method">protected override int SetSucessChance()</Member>
         <Modifier>None</Modifier>
       </Entity>
     </Entities>
     <Relationships>
       <Relationship type="Association" first="1" second="0">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>1003</X>
+          <X>1004</X>
           <Y>291</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>666</X>
-          <Y>291</Y>
+          <Y>290</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="3" second="2">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="4" second="2">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -142,44 +152,48 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="6" second="0">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
           <X>666</X>
-          <Y>279</Y>
+          <Y>278</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="9" second="7">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="7" second="6">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="8" second="6">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="2" second="1">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="5" second="1">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
